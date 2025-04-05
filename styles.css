@@ -1,0 +1,217 @@
+﻿/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navbar Styles */
+.navbar {
+    margin-bottom: 20px;
+}
+
+/* Card Styles - Fixed Height Solution */
+.card {
+    transition: transform 0.2s;
+    border-radius: 35px;
+    border: 10px solid whitesmoke;
+    height: 825px; /* Fixed height */
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+    .card:hover {
+        transform: scale(1.02); /* More subtle hover effect */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+        width: 100%;
+        height: 600px; /* Fixed image height */
+        object-fit: cover;
+    }
+
+.card-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ribbon Styles */
+.corner-ribbon {
+    width: 200px;
+    background: #e43;
+    position: absolute;
+    top: 25px;
+    right: -50px;
+    text-align: center;
+    line-height: 50px;
+    letter-spacing: 5px;
+    color: white;
+    transform: rotate(45deg);
+    z-index: 10;
+    font-weight: bold;
+    font-size:xx-large;
+}
+
+/* Button Styles */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: orange;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px #999;
+    margin-top: auto; /* Pushes button to bottom */
+    align-self: flex-start;
+    transition: all 0.3s;
+    font-size: 25px;
+}
+
+    .button:hover {
+        background-color: #ff8c00;
+        box-shadow: 0 6px #666;
+    }
+
+    .button:active {
+        background-color: #ff8c00;
+        box-shadow: 0 2px #666;
+        transform: translateY(4px);
+    }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card {
+        height: auto; /* Flexible height on mobile */
+        min-height: 600px;
+    }
+
+        .card img {
+            height: 350px;
+        }
+
+    .button {
+        font-size: 25px;
+        padding: 10px 20px;
+        font-weight:bold;
+    }
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+    .button {
+        /* Reset Firefox's default button styles */
+        -moz-appearance: none;
+        background-image: none;
+        /* Ensure orange color appears */
+        background-color: orange !important;
+        /* Fix potential visibility issues */
+        opacity: 1 !important;
+        visibility: visible !important;
+        /* Prevent text color issues */
+        color: white !important;
+        /* Fix border issues */
+        border: none !important;
+    }
+    /* Fix potential parent container clipping */
+    .card > div:last-child {
+        overflow: visible !important;
+    }
+    /* Ensure button stays visible during transitions */
+    .button:hover, .button:active {
+        background-color: #ff8c00 !important;
+    }
+}
+/* Corner ribbon for section */
+/* Section with Ribbon */
+.section-with-ribbon {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Left Corner Ribbon */
+.left-corner-ribbon {
+    position: absolute;
+    top: 25px;
+    left: -50px;
+    width: 200px;
+    background: #e43; /* Ribbon color */
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 1px;
+    transform: rotate(-45deg); /* Negative rotation for left side */
+    transform-origin: 0 0;
+    font-weight: bold;
+    z-index: 10;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* Ensure proper alignment of image and text */
+.container .d-flex {
+    height: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container .d-flex {
+        flex-direction: column;
+    }
+
+    .container img {
+        margin-bottom: 15px;
+        margin-right: 0 !important;
+    }
+}
+    /* Ribbon triangle effect */
+    .left-corner-ribbon:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #c12d2d; /* Slightly darker than ribbon */
+    }.gap {
+    padding-top: 12px;
+}
+
+
+/* Navbar Image Styling */
+.navbar .container img {
+    border-radius: 4px; /* Optional rounded corners */
+    object-fit: contain; /* Keeps image proportions */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+    .navbar .container img:hover {
+        transform: scale(1.05); /* Slight zoom on hover */
+    }
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .navbar .container img {
+        height: 60px !important; /* Smaller on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .container img {
+        height: 50px !important; /* Even smaller on mobile */
+        margin-right: 10px !important;
+    }
+}
